@@ -1,0 +1,22 @@
+# Credenciales
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Datos
+data/raw/
+data/processed/
+*.db
+*.sqlite
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
