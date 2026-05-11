@@ -3,3 +3,4 @@ pandas>=2.2
 python-dotenv>=1.0
 pyyaml>=6.0
 jupyterlab>=4.0
+matplotlib>=3.8
