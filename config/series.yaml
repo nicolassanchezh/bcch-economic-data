@@ -1,6 +1,6 @@
 series:
   ipc:
-    code: F074.IPC.VAR.Z.Z.C.M
+    code: F074.IPC.IND.Z.EP23.C.M # Nuevo cambio  G073.IPC.IND.2023.M a F074.IPC.IND.Z.EP23.C.M
     name: IPC variación mensual
     frequency: monthly
     unit: percent
