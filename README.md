@@ -46,16 +46,20 @@ realizada. La banda se ensancha en períodos de estrés (estallido social
 
 
 ## Arquitectura
+
+```
 src/
 ├── client/          # Cliente de la API REST del BCCh
 ├── extract/         # Orquestación de descargas
 ├── storage/         # Persistencia en SQLite con UPSERT idempotente
 ├── analysis/        # Transformaciones (variaciones, rolling, merge wide)
 └── visualization/   # Tema base + funciones de gráficos reutilizables
+
 config/series.yaml   # Catálogo declarativo de series
 notebooks/           # Exploración y generación de figuras
 reports/figures/     # PNG de salida
 data/                # SQLite y parquets procesados (gitignored)
+```
 
 Flujo: `client` → `extract` → `storage` (SQLite) → `analysis` → `visualization`.
 
