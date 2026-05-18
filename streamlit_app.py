@@ -8,6 +8,10 @@ from src.visualization import style as st_theme
 from src.visualization import charts
 from src.dashboard import services as svc
 
+from src.visualization import charts_interactive as ci # agregado para gráficos Plotly interactivos, sin afectar los estáticos de charts.py
+
+
+
 st_theme.apply_theme()
 
 st.set_page_config(
@@ -109,17 +113,14 @@ tab_inf, tab_fx, tab_data = st.tabs(["📈 Inflación", "💱 Tipo de cambio", "
 
 with tab_inf:
     st.markdown("### Inflación interanual y meta del BCCh")
-    fig, ax = plt.subplots()
-    charts.plot_ipc_yoy(
-        ipc_f, ax=ax,
-        meta=3.0,
-        banda=1.0 if show_meta_band else 0.0,
+    fig = ci.plot_ipc_yoy_interactive(
+        ipc_f, meta=3.0, banda=1.0, show_band=show_meta_band,
     )
-    st.pyplot(fig, clear_figure=True)
+    st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("### IPC y/y vs TPM (eje doble)")
-    fig = charts.plot_ipc_tpm_twinx(ipc_f, tpm_f)
-    st.pyplot(fig, clear_figure=True)
+    fig = ci.plot_ipc_tpm_twinx_interactive(ipc_f, tpm_f)
+    st.plotly_chart(fig, use_container_width=True)
 
     st.caption(
         "Lectura: al subir, la TPM va detrás del IPC (política reactiva); "
@@ -129,14 +130,14 @@ with tab_inf:
 
 with tab_fx:
     st.markdown(f"### USD/CLP con MA{usd_window} y banda ±2σ")
-    fig, ax = plt.subplots()
-    charts.plot_usd_clp(usd_f, ax=ax, ma_col="ma_nd", vol_col="vol_nd")
-    st.pyplot(fig, clear_figure=True)
+    fig = ci.plot_usd_clp_interactive(usd_f, window=usd_window)
+    st.plotly_chart(fig, use_container_width=True)
 
     st.caption(
         f"Media móvil y volatilidad realizada calculadas sobre ventana de "
-        f"{usd_window} días hábiles. La banda se ensancha en estrés cambiario."
+        f"{usd_window} días hábiles. La banda se ensancha en períodos de estrés cambiario."
     )
+
 
 with tab_data:
     st.markdown("### Series filtradas")
