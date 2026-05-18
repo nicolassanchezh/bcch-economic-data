@@ -12,6 +12,7 @@ data/raw/
 data/processed/
 *.db
 *.sqlite
+!data/bcch.db
 
 # Jupyter
 .ipynb_checkpoints/

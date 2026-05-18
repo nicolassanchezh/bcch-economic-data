@@ -53,9 +53,9 @@ class BCChClient:
         obs = data["Series"]["Obs"]
 
         df = pd.DataFrame(obs)
-        df["indexDateString"] = pd.to_datetime(df["indexDateString"], format="%d-%m-%Y")
-        df["value"] = pd.to_numeric(df["value"], errors="coerce")
-        df = df.rename(columns={"indexDateString": "fecha", "value": "valor"})
+        df["indexDateString"] = pd.to_datetime(df["indexDateString"], format="%d-%m-%Y")  #Conversion valor fecha en string a formato datetime
+        df["value"] = pd.to_numeric(df["value"], errors="coerce")   #Conversion valor a formato numerico, si no se puede convertir se asigna NaN
+        df = df.rename(columns={"indexDateString": "fecha", "value": "valor"}) #Renombrar columnas a un formato mas facil de leer
 
         return (
             df[["fecha", "valor"]]
