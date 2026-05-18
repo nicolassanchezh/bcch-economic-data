@@ -1,3 +1,5 @@
+![Dashboard](reports/figures/dashboard.png)
+
 # BCCh Economic Data
 
 Pipeline de extracción, almacenamiento y visualización de series económicas
@@ -12,6 +14,10 @@ del Banco Central de Chile (IPC, TPM, tipo de cambio observado).
 | USD/CLP observado | F073.TCO.PRE.Z.D | Diaria | 2009 → presente |
 
 Fuente: API de Estadísticas Económicas del Banco Central de Chile.
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nico-bcch1.streamlit.app/)
+
+> 🚀 **[Dashboard interactivo en vivo](https://nico-bcch1.streamlit.app/)** — KPIs con deltas, selectores de rango de fechas y gráficos navegables con hover, zoom y pan.
 
 ## Hallazgo principal: política monetaria reactiva al subir, predictiva al transmitirse
 
@@ -84,5 +90,5 @@ Flujo: `client` → `extract` → `storage` (SQLite) → `analysis` → `visuali
 - [x] Fase 3: orquestación de extracción multi-serie
 - [x] Fase 4: capa de análisis (variaciones, rolling, merge wide)
 - [x] Fase 5: visualizaciones con matplotlib
-- [ ] Fase 6: dashboard interactivo con Streamlit
+- [x] Fase 6: dashboard interactivo con Streamlit
 - [ ] Fase 7: tests, CI y ejecución programada
