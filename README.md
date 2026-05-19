@@ -40,9 +40,7 @@ correlaciones rezagadas en la capa de análisis).
 Serie empalmada base dic-2023 = 100, con la banda 3% ± 1pp que el Central
 usa como referencia operativa. Se ven el pico de la crisis 2008-2009, la
 convergencia 2014-2019 y el pico post-pandemia que motivó el ciclo de alza
-más agresivo en décadas. Otro punto de interes a considerar es la evolucion
-del indicador durante los meses de 2026 derivados de la crisis y la guerra 
-en Iran.
+más agresivo en décadas.
 
 ## Tipo de cambio USD/CLP con bandas de volatilidad
 
