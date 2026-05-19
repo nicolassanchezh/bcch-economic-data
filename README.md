@@ -1,3 +1,8 @@
+[![CI](https://github.com/nicolassanchezh/bcch-economic-data/actions/workflows/ci.yml/badge.svg)](https://github.com/nicolassanchezh/bcch-economic-data/actions/workflows/ci.yml)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nico-bcch1.streamlit.app)
+
+> 🚀 **[Dashboard interactivo en vivo](https://nico-bcch1.streamlit.app)** — datos actualizados semanalmente vía GitHub Actions.
+
 ![Dashboard](reports/figures/dashboard.png)
 
 # BCCh Economic Data
@@ -15,9 +20,6 @@ del Banco Central de Chile (IPC, TPM, tipo de cambio observado).
 
 Fuente: API de Estadísticas Económicas del Banco Central de Chile.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nico-bcch1.streamlit.app/)
-
-> 🚀 **[Dashboard interactivo en vivo](https://nico-bcch1.streamlit.app/)** — KPIs con deltas, selectores de rango de fechas y gráficos navegables con hover, zoom y pan.
 
 ## Hallazgo principal: política monetaria reactiva al subir, predictiva al transmitirse
 
@@ -83,6 +85,21 @@ Flujo: `client` → `extract` → `storage` (SQLite) → `analysis` → `visuali
 4. Ejecutar los notebooks de `notebooks/` en orden, o usar los módulos
    de `src/` directamente desde scripts.
 
+## Tests
+
+Suite con pytest cubriendo transformaciones analíticas, persistencia
+en SQLite (incluida idempotencia) y parsing de respuestas del BCCh
+(con HTTP mockeado).
+
+```bash
+pytest                                # correr suite completa
+pytest --cov=src --cov-report=term    # con cobertura
+```
+
+CI corre en Python 3.11 y 3.12 en cada push/PR a `main`.
+
+
+
 ## Roadmap
 
 - [x] Fase 1: setup del proyecto, repo, estructura
@@ -91,4 +108,4 @@ Flujo: `client` → `extract` → `storage` (SQLite) → `analysis` → `visuali
 - [x] Fase 4: capa de análisis (variaciones, rolling, merge wide)
 - [x] Fase 5: visualizaciones con matplotlib
 - [x] Fase 6: dashboard interactivo con Streamlit
-- [ ] Fase 7: tests, CI y ejecución programada
+- [x] Fase 7: tests, CI y ejecución programada
